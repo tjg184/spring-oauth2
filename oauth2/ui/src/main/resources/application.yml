@@ -10,12 +10,18 @@ zuul:
     user:
       path: /user/**
       url: http://localhost:9999/uaa/user
+    bill:
+      path: /bill/**
+      url: http://google.com
 spring:
   oauth2:
     sso:
       home:
         secure: false
         path: /,/**/*.html
+        GET:
+          secure: false
+          path: /bill
     client:
       accessTokenUri: http://localhost:9999/uaa/oauth/token
       userAuthorizationUri: http://localhost:9999/uaa/oauth/authorize
@@ -30,3 +36,4 @@ spring:
 logging:
   level:
     org.springframework.security: DEBUG
+
